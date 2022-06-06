@@ -96,7 +96,7 @@ def main(parser_data):
     # define optimizer
     params = [p for p in model.parameters() if p.requires_grad]
     optimizer = torch.optim.SGD(params, lr=0.0005,
-                                momentum=0.9, weight_decay=0.0005)
+                                momentum=0.9, weight_decay=0.001)
     # learning rate scheduler
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
                                                    step_size=5,
@@ -182,7 +182,7 @@ if __name__ == '__main__':
     # 指定接着从哪个epoch数开始训练
     parser.add_argument('--start_epoch', default=0, type=int, help='start epoch')
     # 训练的总epoch数
-    parser.add_argument('--epochs', default=15, type=int, metavar='N',
+    parser.add_argument('--epochs', default=30, type=int, metavar='N',
                         help='number of total epochs to run')
     # 训练的batch size
     parser.add_argument('--batch_size', default=4, type=int, metavar='N',
